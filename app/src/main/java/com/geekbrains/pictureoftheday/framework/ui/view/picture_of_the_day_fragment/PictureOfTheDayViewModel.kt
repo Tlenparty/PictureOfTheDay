@@ -1,6 +1,7 @@
 package com.geekbrains.pictureoftheday.framework.ui.view.picture_of_the_day_fragment
 
 import androidx.lifecycle.*
+import com.geekbrains.pictureoftheday.BuildConfig
 import com.geekbrains.pictureoftheday.model.rest.PODRetrofitImpl
 import com.geekbrains.pictureoftheday.model.rest.PODServerResponseData
 import com.geekbrains.pictureoftheday.viewmodel.PictureOfTheDayData
@@ -21,7 +22,7 @@ class PictureOfTheDayViewModel(
 
     private fun sendServerRequest() {
         liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
-        val apiKey: String = "94OaFap7FnKDYXqDAk7BEdXrhhTFqENm6vIFqDc8"
+        val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PictureOfTheDayData.Error(Throwable("You need API key"))
         } else {

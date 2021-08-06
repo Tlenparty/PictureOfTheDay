@@ -15,7 +15,7 @@ import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.databinding.MainFragmentBinding
 import com.geekbrains.pictureoftheday.framework.ui.MainActivity
 import com.geekbrains.pictureoftheday.framework.ui.view.bottom_navigation_drawer_fragment.BottomNavigationDrawerFragment
-import com.geekbrains.pictureoftheday.framework.ui.view.chips_fragment.ChipsFragment
+import com.geekbrains.pictureoftheday.framework.ui.view.settings_fragment.SettingsFragment
 import com.geekbrains.pictureoftheday.viewmodel.PictureOfTheDayData
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -56,7 +56,7 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> toast("Favourite")
-            R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
+            R.id.app_bar_settings -> activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container, SettingsFragment())?.addToBackStack(null)?.commit()
             android.R.id.home -> {
                 activity?.let {
                     BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")

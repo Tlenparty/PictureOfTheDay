@@ -17,5 +17,12 @@
     <color name="shrine_pink_900">#442C2E</color>
     <color name="shrine_pink_50">#FEEAE6</color>
 
+    <color name="green">#00FF00</color>
+    <color name="text_field_background">#442C2E</color>
     <color name="ic_launcher_rabbit_blue_background">#458af7</color>
+
+    <color name="gray">#37474f</color>
+    <color name="gray_light">#62727b</color>
+    <color name="gray_dark">#102027</color>
+
 </resources>
