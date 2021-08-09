@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.framework.ui.view.bottom_navigation_drawer_fragment
+package com.geekbrains.pictureoftheday.picture.bottom_navigation_drawer_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

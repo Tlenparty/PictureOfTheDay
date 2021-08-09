@@ -1,9 +1,9 @@
-package com.geekbrains.pictureoftheday.framework.ui.view.picture_of_the_day_fragment
+package com.geekbrains.pictureoftheday.picture.picture_of_the_day_fragment
 
 import androidx.lifecycle.*
 import com.geekbrains.pictureoftheday.BuildConfig
-import com.geekbrains.pictureoftheday.model.rest.PODRetrofitImpl
-import com.geekbrains.pictureoftheday.model.rest.PODServerResponseData
+import com.geekbrains.pictureoftheday.model.PODRetrofitImpl
+import com.geekbrains.pictureoftheday.model.PODServerResponseData
 import com.geekbrains.pictureoftheday.viewmodel.PictureOfTheDayData
 import retrofit2.Call
 import retrofit2.Callback

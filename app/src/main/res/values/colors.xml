@@ -25,4 +25,6 @@
     <color name="gray_light">#62727b</color>
     <color name="gray_dark">#102027</color>
 
+    <!--  exported  -->
+    <color name="colorAccent40Alfa">#662962FF</color>
 </resources>

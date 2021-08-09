@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.model.rest
+package com.geekbrains.pictureoftheday.model
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -1,6 +1,6 @@
 package com.geekbrains.pictureoftheday.viewmodel
 
-import com.geekbrains.pictureoftheday.model.rest.PODServerResponseData
+import com.geekbrains.pictureoftheday.model.PODServerResponseData
 
 sealed class PictureOfTheDayData {
     data class Success(val serverResponseData: PODServerResponseData) : PictureOfTheDayData()

@@ -1,4 +1,4 @@
-package com.geekbrains.pictureoftheday.model.rest
+package com.geekbrains.pictureoftheday.model
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor

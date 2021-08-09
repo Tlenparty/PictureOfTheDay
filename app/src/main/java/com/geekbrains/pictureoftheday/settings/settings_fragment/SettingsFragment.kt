@@ -1,17 +1,14 @@
-package com.geekbrains.pictureoftheday.framework.ui.view.settings_fragment
+package com.geekbrains.pictureoftheday.settings.settings_fragment
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.databinding.FragmentSettingsBinding
-import com.geekbrains.pictureoftheday.framework.ui.MainActivity
-import com.google.android.material.chip.Chip
+import com.geekbrains.pictureoftheday.MainActivity
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -52,6 +49,10 @@ class SettingsFragment : Fragment() {
                 requireActivity().recreate()
             }
         })
+    }
+
+    companion object{
+        fun newInstance() = SettingsFragment()
     }
 
     override fun onDestroy() {
