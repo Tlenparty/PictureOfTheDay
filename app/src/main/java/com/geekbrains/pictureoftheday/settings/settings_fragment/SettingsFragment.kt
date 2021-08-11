@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.databinding.FragmentSettingsBinding
 import com.geekbrains.pictureoftheday.MainActivity
+import com.google.android.material.behavior.SwipeDismissBehavior
+import androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams;
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -19,10 +23,9 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSettingsBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -41,7 +44,23 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        requireActivity()
+        val swipe: SwipeDismissBehavior<CardView?> = SwipeDismissBehavior<CardView?>()
+        swipe.setSwipeDirection(SwipeDismissBehavior.SWIPE_DIRECTION_ANY)
+        swipe.listener = object : SwipeDismissBehavior.OnDismissListener {
+            override fun onDismiss(view: View?) {
+                Toast.makeText(
+                    context,
+                    "Card swiped !!", Toast.LENGTH_SHORT
+                ).show()
+            }
+            override fun onDragStateChanged(state: Int) {}
+        }
+
+        val mCardView: CardView =  view.findViewById<CardView>(R.id.card_view)
+        val coordinatorParams = mCardView.layoutParams as LayoutParams
+        coordinatorParams.behavior = swipe
+
+    requireActivity()
             .onBackPressedDispatcher
             .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

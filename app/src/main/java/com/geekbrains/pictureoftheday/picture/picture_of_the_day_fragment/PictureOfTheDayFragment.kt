@@ -5,32 +5,26 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.geekbrains.pictureoftheday.R
-import com.geekbrains.pictureoftheday.databinding.MainFragmentBinding
+import com.geekbrains.pictureoftheday.databinding.FragmentMainStartBinding
 import com.geekbrains.pictureoftheday.picture.bottom_navigation_drawer_fragment.BottomNavigationDrawerFragment
 import com.geekbrains.pictureoftheday.settings.settings_fragment.SettingsFragment
 import com.geekbrains.pictureoftheday.viewpager.ViewPagerAdapter
 import com.geekbrains.pictureoftheday.viewpager.ViewPagerItems
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PictureOfTheDayFragment : Fragment() {
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: FragmentMainStartBinding? = null
     private val binding get() = _binding!!
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-    private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentMainStartBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -69,7 +63,6 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_bottom_bar, menu)
@@ -88,38 +81,6 @@ class PictureOfTheDayFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-   /* private fun renderData(data: PictureOfTheDayData) = with(binding) {
-        when (data) {
-            is PictureOfTheDayData.Success -> {
-                val serverResponseData = data.serverResponseData
-                val url = serverResponseData.url
-                if (url.isNullOrEmpty()) {
-                    //showError("Сообщение, что ссылка пустая")
-                    toast("Link is empty")
-                } else {
-                    //showSuccess()
-                    imageView.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
-                        error(R.drawable.ic_load_error_vector)
-                        placeholder(R.drawable.ic_no_photo_vector)
-                    }
-                }
-            }
-            is PictureOfTheDayData.Loading -> {
-                //showLoading()
-            }
-            is PictureOfTheDayData.Error -> {
-                //showError(data.error.message)
-                toast(data.error.message)
-            }
-        }
-    }*/
-
-//    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
-//        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-//        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-//    }
 
     private fun Fragment.toast(string: String?) {
         Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
