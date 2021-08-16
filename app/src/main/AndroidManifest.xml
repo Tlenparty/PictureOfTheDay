@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".animations.AnimActivity"/>
+        <activity android:name=".api.ApiActivity"/>
+        <activity android:name=".animations.AnimationsActivity"/>
+        <activity android:name=".animations.AnimationsActivityBonus"/>
     </application>
 
 </manifest>
