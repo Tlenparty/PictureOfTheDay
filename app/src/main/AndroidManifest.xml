@@ -20,6 +20,7 @@
         <activity android:name=".api.ApiActivity"/>
         <activity android:name=".animations.AnimationsActivity"/>
         <activity android:name=".animations.AnimationsActivityBonus"/>
+        <activity android:name=".recycler.RecyclerActivity"/>
     </application>
 
 </manifest>

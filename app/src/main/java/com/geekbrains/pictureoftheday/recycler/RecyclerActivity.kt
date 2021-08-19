@@ -51,13 +51,7 @@ class RecyclerActivity:AppCompatActivity() {
                 }
             }
         )
-        initView()
         initActivityRecyclerListeners()
-
-    }
-
-     fun initView(){
-        marsTextView = findViewById(R.id.mars_text_view)
     }
 
     private fun changeAdapterData() {
