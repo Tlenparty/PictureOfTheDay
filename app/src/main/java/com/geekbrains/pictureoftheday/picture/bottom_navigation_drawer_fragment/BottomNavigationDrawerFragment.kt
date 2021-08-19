@@ -10,6 +10,7 @@ import com.geekbrains.pictureoftheday.R
 import com.geekbrains.pictureoftheday.animations.AnimationsActivity
 import com.geekbrains.pictureoftheday.animations.AnimationsActivityBonus
 import com.geekbrains.pictureoftheday.databinding.BottomNavigationLayoutBinding
+import com.geekbrains.pictureoftheday.recycler.RecyclerActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -33,7 +34,10 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                     startActivity(Intent(it, AnimationsActivity::class.java))
                 }
                 R.id.navigation_two -> activity?.let{
-                    startActivity((Intent(it,AnimationsActivityBonus::class.java)))
+                    startActivity(Intent(it,AnimationsActivityBonus::class.java))
+                }
+                R.id.navigation_three -> activity?.let{
+                    startActivity(Intent(it,RecyclerActivity::class.java))
                 }
             }
             dismiss()
