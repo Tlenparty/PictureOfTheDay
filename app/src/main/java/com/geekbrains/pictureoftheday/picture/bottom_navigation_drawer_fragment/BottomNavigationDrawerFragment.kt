@@ -11,6 +11,7 @@ import com.geekbrains.pictureoftheday.animations.AnimationsActivity
 import com.geekbrains.pictureoftheday.animations.AnimationsActivityBonus
 import com.geekbrains.pictureoftheday.databinding.BottomNavigationLayoutBinding
 import com.geekbrains.pictureoftheday.recycler.RecyclerActivity
+import com.geekbrains.pictureoftheday.span.SpanActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -38,6 +39,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_three -> activity?.let{
                     startActivity(Intent(it,RecyclerActivity::class.java))
+                }
+                R.id.navigation_four -> activity?.let{
+                    startActivity(Intent(it,SpanActivity::class.java))
                 }
             }
             dismiss()

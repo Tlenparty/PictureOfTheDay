@@ -21,6 +21,11 @@
         <activity android:name=".animations.AnimationsActivity"/>
         <activity android:name=".animations.AnimationsActivityBonus"/>
         <activity android:name=".recycler.RecyclerActivity"/>
+        <activity android:name=".span.SpanActivity"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
