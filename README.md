@@ -1,55 +1,55 @@
 # Picture of the Day
 
-Android-приложение, которое показывает «Астрономическую картинку дня»
-([NASA APOD](https://apod.nasa.gov/apod/)): снимок, заголовок и описание
-загружаются через [NASA Open API](https://api.nasa.gov/). Проект также служит
-песочницей для Material Components, анимаций и работы с текстом.
+An Android app that shows the Astronomy Picture of the Day
+([NASA APOD](https://apod.nasa.gov/apod/)): the image, title and description
+are loaded through the [NASA Open API](https://api.nasa.gov/). The project also serves as a
+sandbox for Material Components, animations and text handling.
 
-## Возможности
+## Features
 
-- Картинка дня NASA APOD с заголовком и описанием (ViewPager2 + TabLayout)
-- Поиск термина в Wikipedia прямо с главного экрана
-- Splash-экран с анимацией
-- Нижняя навигация, BottomAppBar с FAB и выезжающее меню (BottomSheet)
-- Выбор темы оформления («Космос» / «Розовая планета»), сохраняется в SharedPreferences
-- Демо-экраны: анимации и переходы, RecyclerView с drag & drop и swipe,
-  Spannable-текст и загружаемые шрифты
+- NASA APOD picture of the day with title and description (ViewPager2 + TabLayout)
+- Wikipedia term search right from the main screen
+- Splash screen with animation
+- Bottom navigation, BottomAppBar with a FAB and a sliding menu (BottomSheet)
+- Theme selection ("Space" / "Pink Planet"), stored in SharedPreferences
+- Demo screens: animations and transitions, RecyclerView with drag & drop and swipe,
+  Spannable text and downloadable fonts
 
-## Стек
+## Tech stack
 
-| Область        | Технологии                                   |
+| Area           | Technologies                                 |
 |----------------|----------------------------------------------|
-| Язык           | Kotlin                                       |
-| Архитектура    | MVVM (ViewModel + LiveData)                  |
-| Сеть           | Retrofit, OkHttp, Gson                       |
-| Изображения    | Coil                                         |
+| Language       | Kotlin                                       |
+| Architecture   | MVVM (ViewModel + LiveData)                  |
+| Networking     | Retrofit, OkHttp, Gson                       |
+| Images         | Coil                                         |
 | UI             | ViewBinding, Material Components, ViewPager2, CircleIndicator |
-| Сборка         | Gradle (Groovy DSL)                          |
+| Build          | Gradle (Groovy DSL)                          |
 
-## Структура
+## Project structure
 
 ```
 app/src/main/java/com/tlenparty/pictureoftheday/
-├── model/          # Retrofit-клиент и модели NASA APOD
-├── viewmodel/      # состояния экрана (Loading / Success / Error)
-├── picture/        # главный экран и нижнее меню
-├── viewpager/      # страницы с картинкой дня
-├── api/            # экраны Earth / Mars / Weather
-├── settings/       # выбор темы
-├── animations/     # демо анимаций и переходов
+├── model/          # Retrofit client and NASA APOD models
+├── viewmodel/      # screen states (Loading / Success / Error)
+├── picture/        # main screen and bottom menu
+├── viewpager/      # picture-of-the-day pages
+├── api/            # Earth / Mars / Weather screens
+├── settings/       # theme selection
+├── animations/     # animation and transition demos
 ├── recycler/       # RecyclerView: drag & drop, swipe, DiffUtil
-└── span/           # Spannable-текст
+└── span/           # Spannable text
 ```
 
-## Сборка
+## Build
 
-Требуется JDK 11–17 и Android SDK 31.
+Requires JDK 11–17 and Android SDK 31.
 
-Ключ NASA API задаётся в файле `apikey.properties` в корне проекта
-(файл в `.gitignore`); без него используется публичный `DEMO_KEY` с жёсткими лимитами:
+The NASA API key is set in the `apikey.properties` file in the project root
+(the file is listed in `.gitignore`); without it the public `DEMO_KEY` is used, which has strict rate limits:
 
 ```properties
-NASA_API_KEY="ваш_ключ"
+NASA_API_KEY="your_key"
 ```
 
 ```bash
