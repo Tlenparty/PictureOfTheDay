@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
@@ -28,8 +28,9 @@ android {
 
     buildTypes.each {
         Properties properties = new Properties()
-        properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
-        def nasaApiKey = properties.getProperty("NASA_API_KEY", "")
+        def apiKeyFile = project.rootProject.file("apikey.properties")
+        if (apiKeyFile.exists()) properties.load(apiKeyFile.newDataInputStream())
+        def nasaApiKey = properties.getProperty("NASA_API_KEY", "\"DEMO_KEY\"")
         it.buildConfigField "String", "NASA_API_KEY", nasaApiKey
     }
 
@@ -65,9 +66,9 @@ dependencies {
     implementation("io.coil-kt:coil:0.9.2")
 
     //Room
-    implementation "androidx.room:room-runtime:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.3"
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
-    kapt 'androidx.room:room-compiler:2.3.0'
+    kapt 'androidx.room:room-compiler:2.4.3'
 
     // Kotlin
     implementation 'androidx.core:core-ktx:1.6.0'
